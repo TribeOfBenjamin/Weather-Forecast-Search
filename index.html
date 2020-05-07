@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/10a440c199.js" crossorigin="anonymous"></script>
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -27,18 +28,38 @@
     <main>
         <div class="container">
             <div class="row">
-                <div id="searchBar" class="col-md-3 blue">
+                <div id="searchBar" class="col-md-3 pt-3 bg-light">
                     Search for a City:
+                    <form>
+                        <div class="form-group">
+                          <div class="input-group mb-3">
+                            <input type="cityName" class="form-control" placeholder="London" id="cityNameInput">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </div>
+                            <small id="emailHelp" class="form-text text-muted">Make sure you have the correct spelling.</small>
+                          </div>
+                        </div>
+                        
+                      </form>
                 </div>
                 <div class="col-md-9">
                     <div class="row">
-                        <div id="weatherToday" class="col-md-12 orange">
+                        <div id="weatherToday" class="col-md-12 bg-primary">
+                            <h3>Today's Weather</h3>
                             <br>
+                            <h5 id="currentCity">London</h5>
+                            <br>
+                            <p id="currentTemp">Temperature:</p>
+                            <p id="currentHumid">Humidity:</p>
+                            <p id="currentWind">Wind Speed:</p>
+                            <p id="currentUV">UV Index:</p>
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
-                        <div id="weatherNextFive" class="col-md-12 red">
-                            5-Day Forecast:
+                        <div id="weatherNextFive" class="col-md-12 bg-warning">
+                            <h3>5-Day Forecast:</h3>
                         </div>
                     </div>
                 </div>
