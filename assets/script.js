@@ -16,12 +16,12 @@ $(document).ready(function(){
 
     let APIKey = "a1e0d56642d0b33ce92ae916a2c804ff";
     // Hard coded for London at the moment
-    let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=" + APIKey;
+    let queryURL1 = "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=" + APIKey;
     //let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityNameInput.val() + "&appid=" + APIKey;
 
 
     $.ajax({
-      url: queryURL,
+      url: queryURL1,
       method: "GET"
     }).then(function(response) {
 
@@ -29,7 +29,7 @@ $(document).ready(function(){
       // Gets and displays temperature
       let temperature = response.list[0].main.temp;
       let temperatureInteger = Math.floor(temperature);
-      $("#currentTemp").append(" " + temperatureInteger + String.fromCharCode(176));
+      $("#currentTemp").append(" " + temperatureInteger + String.fromCharCode(176) + "F");
       console.log(temperatureInteger);
 
       // Gets and displays humidity
@@ -38,8 +38,39 @@ $(document).ready(function(){
       console.log(humidity);
 
       // Gets and displays wind speed
+      let wind = response.list[0].wind.speed;
+      $("#currentWind").append(" " + wind + "/MPH");
+      console.log(wind);
+
+
+      // API call for UV index
+      let queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + -6 + "&lon=" + 6;
+
+      $.ajax({
+        url: queryURL2,
+        method: "GET"
+      }).then(function(UVresponse) { 
+
+        // Gets and displays UV index
+        let UV = UVresponse.value;
+
+        if ( UV < 3 ) {
+
+          $("#currentUV").append(" " + UV);
+          $("#currentUV").css("background-color", "green");
+        } else if ( UV >= 11 ) {
+
+          $("#currentUV").append(" " + UV);
+          $("#currentUV").css("background-color", "red");
+        }
+
+        console.log(UVresponse);
+
+      })
 
     });
+
+
 
   //});
 
