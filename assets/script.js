@@ -16,9 +16,8 @@ $(document).ready(function(){
 
     let APIKey = "a1e0d56642d0b33ce92ae916a2c804ff";
     // Current Weather API call (hard coded for London for now)
-    let queryURL1 = "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=" + APIKey;
-    //let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityNameInput.val() + "&appid=" + APIKey;
-
+    let queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q=London&units=imperial&appid=" + APIKey;
+    //let queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q=" + cityNameInput.val() + "&units=imperial&appid=" + APIKey;
 
     $.ajax({
       url: queryURL1,
@@ -27,24 +26,30 @@ $(document).ready(function(){
 
       console.log(response);
       // Gets and displays temperature
-      let temperature = response.list[0].main.temp;
+      let temperature = response.main.temp;
       let temperatureInteger = Math.floor(temperature);
       $("#currentTemp").append(" " + temperatureInteger + String.fromCharCode(176) + "F");
       console.log(temperatureInteger);
 
       // Gets and displays humidity
-      let humidity = response.list[0].main.humidity;
+      let humidity = response.main.humidity;
       $("#currentHumid").append(" " + humidity + String.fromCharCode(37));
       console.log(humidity);
 
       // Gets and displays wind speed
-      let wind = response.list[0].wind.speed;
+      let wind = response.wind.speed;
       $("#currentWind").append(" " + wind + "/MPH");
       console.log(wind);
 
+      // Gets and displays weather icon
+      let weatherIconCode = response.weather[0].icon;
+      weatherIconURL = "http://openweathermap.org/img/w/" + weatherIconCode + ".png";
+      $("#weatherIcon").attr("src", weatherIconURL);
+      console.log(weatherIconCode);
+
       // Gets latitude and longitude
-      let lat = response.city.coord.lat;
-      let lon = response.city.coord.lon;
+      let lat = response.coord.lat;
+      let lon = response.coord.lon;
 
       console.log(lat);
       console.log(lon);
