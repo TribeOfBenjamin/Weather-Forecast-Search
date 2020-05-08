@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-    // City search button function
+    // City search button function (commented out)
 
 
 
@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 
     let APIKey = "a1e0d56642d0b33ce92ae916a2c804ff";
-    // Hard coded for London at the moment
+    // Current Weather API call (hard coded for London for now)
     let queryURL1 = "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=" + APIKey;
     //let queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityNameInput.val() + "&appid=" + APIKey;
 
@@ -42,16 +42,22 @@ $(document).ready(function(){
       $("#currentWind").append(" " + wind + "/MPH");
       console.log(wind);
 
+      // Gets latitude and longitude
+      let lat = response.city.coord.lat;
+      let lon = response.city.coord.lon;
 
-      // API call for UV index
-      let queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + -6 + "&lon=" + 12;
+      console.log(lat);
+      console.log(lon);
+
+      // UV Index API call (using latitude and longitude from Current Weather API)
+      let queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
 
       $.ajax({
         url: queryURL2,
         method: "GET"
       }).then(function(UVresponse) { 
 
-        // Gets and displays UV index
+        // Gets and displays UV index, changing background color accordingly
         let UV = UVresponse.value;
 
         if ( UV < 3 ) {
