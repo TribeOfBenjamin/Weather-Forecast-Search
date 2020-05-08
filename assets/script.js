@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 
       // API call for UV index
-      let queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + -6 + "&lon=" + 6;
+      let queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + -6 + "&lon=" + 12;
 
       $.ajax({
         url: queryURL2,
@@ -58,6 +58,18 @@ $(document).ready(function(){
 
           $("#currentUV").append(" " + UV);
           $("#currentUV").css("background-color", "green");
+        } else if ( UV >= 3 && UV < 6 ) {
+
+          $("#currentUV").append(" " + UV);
+          $("#currentUV").css("background-color", "yellow");
+        } else if ( UV >= 6 && UV < 8 ) {
+
+          $("#currentUV").append(" " + UV);
+          $("#currentUV").css("background-color", "orange");
+        } else if ( UV >= 8 && UV < 11 ) {
+
+          $("#currentUV").append(" " + UV);
+          $("#currentUV").css("background-color", "orangered");
         } else if ( UV >= 11 ) {
 
           $("#currentUV").append(" " + UV);
