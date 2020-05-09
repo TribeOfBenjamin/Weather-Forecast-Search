@@ -12,13 +12,10 @@
 <body>
 
     <header>
-        <div class="container">
+        <div class="container bg-dark text-light">
             <div class="row">
-                <div class="col-md-12 mt-5 text-center">
+                <div class="col-md-12 mt-4 mb-3 text-center">
                     <h1>Weather Dashboard</h1>
-                    <div id="todaysDate" class="mt-5"></div>
-                    <div id="temperature"></div>
-                    <hr>
 
                 </div>
             </div>
@@ -33,7 +30,7 @@
                     <form>
                         <div class="form-group">
                           <div class="input-group mb-3">
-                            <input type="cityName" id="cityNameInput" class="form-control" placeholder="London">
+                            <input type="cityName" id="cityNameInput" class="form-control">
                             <div class="input-group-append">
                                 <button type="submit" id="searchButton" class="btn btn-primary"><i class="fas fa-search"></i></button>
                             </div>
@@ -45,23 +42,33 @@
                 </div>
                 <div class="col-md-9">
                     <div class="row">
-                        <div id="weatherToday" class="col-md-12 bg-primary">
-                            <h3>Today's Weather</h3>
+                        <div id="weatherToday" class="col-md-12">
+                            <div id="weatherTodaySimple" class="ml-2 mt-4">
+                                <h3 id="currentCity">London</h3>
+                                <img id="currentIcon" src="" alt="Current Weather Icon">
+                                <div id="todaysDate"></div>
+                            </div>
                             <br>
-                            <h5 id="currentCity">London</h5>
-                            <br>
-                            <div><img id="weatherIcon" src="" alt="Current Weather Icon"></div>
-                            <br>
-                            <p id="currentTemp">Temperature:</p>
-                            <p id="currentHumid">Humidity:</p>
-                            <p id="currentWind">Wind Speed:</p>
-                            <p id="currentUV">UV Index:</p>
+                            <div id="weatherTodayComplex" class="ml-3">
+                                <p id="currentTemp">Temperature:</p>
+                                <p id="currentHumid">Humidity:</p>
+                                <p id="currentWind">Wind Speed:</p>
+                                <p>UV Index: <span id="currentUV" class="p-2"></span></p>
+                            </div>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
-                        <div id="weatherNextFive" class="col-md-12 bg-warning">
+                        <div id="weatherNextFive" class="col-md-12">
                             <h3>5-Day Forecast:</h3>
+                                <div id="oneDay" class="card w-25">
+                                    <div class="card-body">
+                                    <h5 id="oneDayDate" class="card-title"></h5>
+                                    <div id="oneDayIcon"></div>
+                                    <p id="oneDayTemp" class="card-text">Temperature:</p>
+                                    <p id="oneDayHumid" class="card-text">Humidity:</p>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>

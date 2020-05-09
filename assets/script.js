@@ -38,14 +38,14 @@ $(document).ready(function(){
 
       // Gets and displays wind speed
       let wind = response.wind.speed;
-      $("#currentWind").append(" " + wind + "/MPH");
+      $("#currentWind").append(" " + wind + " MPH");
       console.log(wind);
 
       // Gets and displays weather icon
-      let weatherIconCode = response.weather[0].icon;
-      weatherIconURL = "http://openweathermap.org/img/w/" + weatherIconCode + ".png";
-      $("#weatherIcon").attr("src", weatherIconURL);
-      console.log(weatherIconCode);
+      let currentIconCode = response.weather[0].icon;
+      currentIconURL = "http://openweathermap.org/img/w/" + currentIconCode + ".png";
+      $("#weatherIcon").attr("src", currentIconURL);
+      console.log(currentIconCode);
 
       // Gets latitude and longitude
       let lat = response.coord.lat;
