@@ -46,7 +46,7 @@
                             <div id="weatherTodaySimple" class="ml-2 mt-4">
                                 <h3 id="currentCity">London</h3>
                                 <img id="currentIcon" src="" alt="Current Weather Icon">
-                                <div id="todaysDate"></div>
+                                <h5 id="todaysDate"></h5>
                             </div>
                             <br>
                             <div id="weatherTodayComplex" class="ml-3">
@@ -61,14 +61,53 @@
                     <div class="row">
                         <div id="weatherNextFive" class="col-md-12">
                             <h3>5-Day Forecast:</h3>
-                                <div id="oneDay" class="card w-25 bg-primary">
+                            <div class="card-group text-light">
+                                <!--One Day Card-->
+                                <div id="oneDay" class="card w-25 bg-primary m-1">
                                     <div class="card-body">
                                     <h5 id="oneDayDate" class="card-title text-center"></h5>
                                     <img id="oneDayIcon" src="" alt="Day One Icon"></img>
-                                    <p id="oneDayTemp" class="card-text">Temperature:</p>
+                                    <p id="oneDayTemp" class="card-text">Temp:</p>
                                     <p id="oneDayHumid" class="card-text">Humidity:</p>
                                     </div>
                                 </div>
+                                <!--Two Day Card-->
+                                <div id="twoDay" class="card w-25 bg-primary m-1">
+                                    <div class="card-body">
+                                    <h5 id="twoDayDate" class="card-title text-center"></h5>
+                                    <img id="twoDayIcon" src="" alt="Day Two Icon"></img>
+                                    <p id="twoDayTemp" class="card-text">Temp:</p>
+                                    <p id="twoDayHumid" class="card-text">Humidity:</p>
+                                    </div>
+                                </div>
+                                <!--Three Day Card-->
+                                <div id="threeDay" class="card w-25 bg-primary m-1">
+                                    <div class="card-body">
+                                    <h5 id="threeDayDate" class="card-title text-center"></h5>
+                                    <img id="threeDayIcon" src="" alt="Day Three Icon"></img>
+                                    <p id="threeDayTemp" class="card-text">Temp:</p>
+                                    <p id="threeDayHumid" class="card-text">Humidity:</p>
+                                    </div>
+                                </div>
+                                <!--Four Day Card-->
+                                <div id="fourDay" class="card w-25 bg-primary m-1">
+                                    <div class="card-body">
+                                    <h5 id="fourDayDate" class="card-title text-center"></h5>
+                                    <img id="fourDayIcon" src="" alt="Day Four Icon"></img>
+                                    <p id="fourDayTemp" class="card-text">Temp:</p>
+                                    <p id="fourDayHumid" class="card-text">Humidity:</p>
+                                    </div>
+                                </div>
+                                <!--Five Day Card-->
+                                <div id="fiveDay" class="card w-25 bg-primary m-1">
+                                    <div class="card-body">
+                                    <h5 id="fiveDayDate" class="card-title text-center"></h5>
+                                    <img id="fiveDayIcon" src="" alt="Day Five Icon"></img>
+                                    <p id="fiveDayTemp" class="card-text">Temp:</p>
+                                    <p id="fiveDayHumid" class="card-text">Humidity:</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
