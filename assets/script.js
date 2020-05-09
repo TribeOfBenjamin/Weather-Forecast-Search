@@ -25,27 +25,23 @@ $(document).ready(function(){
     }).then(function(response) {
 
       console.log(response);
-      // Gets and displays temperature
+      // Gets and displays current temperature
       let temperature = response.main.temp;
       let temperatureInteger = Math.floor(temperature);
       $("#currentTemp").append(" " + temperatureInteger + String.fromCharCode(176) + "F");
-      console.log(temperatureInteger);
 
-      // Gets and displays humidity
+      // Gets and displays current humidity
       let humidity = response.main.humidity;
       $("#currentHumid").append(" " + humidity + String.fromCharCode(37));
-      console.log(humidity);
 
-      // Gets and displays wind speed
+      // Gets and displays current wind speed
       let wind = response.wind.speed;
       $("#currentWind").append(" " + wind + " MPH");
-      console.log(wind);
 
-      // Gets and displays weather icon
+      // Gets and displays current weather icon
       let currentIconCode = response.weather[0].icon;
       currentIconURL = "http://openweathermap.org/img/w/" + currentIconCode + ".png";
-      $("#weatherIcon").attr("src", currentIconURL);
-      console.log(currentIconCode);
+      $("#currentIcon").attr("src", currentIconURL);
 
       // Gets latitude and longitude
       let lat = response.coord.lat;
@@ -87,8 +83,6 @@ $(document).ready(function(){
           $("#currentUV").css("background-color", "red");
         }
 
-        console.log(UVresponse);
-
       })
 
     });
@@ -97,6 +91,35 @@ $(document).ready(function(){
 
   //});
 
+  // 5-Day Forecast API call (hard coded for London for now)
+  let queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=" + APIKey;
+  
+  $.ajax({
+    url: queryURL3,
+    method: "GET"
+  }).then(function(fiveResponse) {
+
+    // Day One Forecast
+    // Referenced this SO question to do date for futures: https://stackoverflow.com/questions/35441820/moment-js-tomorrow-today-and-yesterday
+    let oneDayDate = $("#oneDayDate").text(moment().add(1, "days").format("L"));
+
+    let oneDayIconCode = fiveResponse.list[7].weather[0].icon;
+    oneDayIconURL = "http://openweathermap.org/img/w/" + oneDayIconCode + ".png";
+    $("#oneDayIcon").attr("src", oneDayIconURL);
+
+    console.log(oneDayIconCode);
+
+    let oneDayTemp = fiveResponse.list[7].main.temp;
+    let oneDayTempInteger = Math.floor(oneDayTemp);
+    $("#oneDayTemp").append(" " + oneDayTempInteger + String.fromCharCode(176) + "F");
+
+    let oneDayHumid = fiveResponse.list[15].main.humidity;
+    $("#oneDayHumid").append(" " + oneDayHumid + String.fromCharCode(37));
+
+    console.log(fiveResponse);
+
+
+  });
 
     
     // Generates Date and Time in Header
