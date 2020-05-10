@@ -121,7 +121,7 @@ $(document).ready(function(){
         $("#oneDayDate").text(moment().add(1, "days").format("L"));
     
         let oneDayIconCode = fiveResponse.list[7].weather[0].icon;
-        oneDayIconURL = "http://openweathermap.org/img/w/" + oneDayIconCode + ".png";
+        oneDayIconURL = "https://openweathermap.org/img/w/" + oneDayIconCode + ".png";
         $("#oneDayIcon").attr("src", oneDayIconURL);
     
         let oneDayTemp = fiveResponse.list[7].main.temp;
@@ -135,7 +135,7 @@ $(document).ready(function(){
         $("#twoDayDate").text(moment().add(2, "days").format("L"));
     
         let twoDayIconCode = fiveResponse.list[15].weather[0].icon;
-        twoDayIconURL = "http://openweathermap.org/img/w/" + twoDayIconCode + ".png";
+        twoDayIconURL = "https://openweathermap.org/img/w/" + twoDayIconCode + ".png";
         $("#twoDayIcon").attr("src", twoDayIconURL);
     
         let twoDayTemp = fiveResponse.list[15].main.temp;
@@ -149,7 +149,7 @@ $(document).ready(function(){
         $("#threeDayDate").text(moment().add(3, "days").format("L"));
     
         let threeDayIconCode = fiveResponse.list[23].weather[0].icon;
-        threeDayIconURL = "http://openweathermap.org/img/w/" + threeDayIconCode + ".png";
+        threeDayIconURL = "https://openweathermap.org/img/w/" + threeDayIconCode + ".png";
         $("#threeDayIcon").attr("src", threeDayIconURL);
     
         let threeDayTemp = fiveResponse.list[23].main.temp;
@@ -163,7 +163,7 @@ $(document).ready(function(){
         $("#fourDayDate").text(moment().add(4, "days").format("L"));
     
         let fourDayIconCode = fiveResponse.list[31].weather[0].icon;
-        fourDayIconURL = "http://openweathermap.org/img/w/" + fourDayIconCode + ".png";
+        fourDayIconURL = "https://openweathermap.org/img/w/" + fourDayIconCode + ".png";
         $("#fourDayIcon").attr("src", fourDayIconURL);
     
         let fourDayTemp = fiveResponse.list[31].main.temp;
@@ -177,7 +177,7 @@ $(document).ready(function(){
         $("#fiveDayDate").text(moment().add(5, "days").format("L"));
     
         let fiveDayIconCode = fiveResponse.list[31].weather[0].icon;
-        fiveDayIconURL = "http://openweathermap.org/img/w/" + fiveDayIconCode + ".png";
+        fiveDayIconURL = "https://openweathermap.org/img/w/" + fiveDayIconCode + ".png";
         $("#fiveDayIcon").attr("src", fiveDayIconURL);
     
         let fiveDayTemp = fiveResponse.list[31].main.temp;
