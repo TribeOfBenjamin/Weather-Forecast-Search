@@ -43,7 +43,7 @@ $(document).ready(function(){
 
       // Gets and displays current weather icon
       let currentIconCode = response.weather[0].icon;
-      currentIconURL = "http://openweathermap.org/img/w/" + currentIconCode + ".png";
+      currentIconURL = "https://openweathermap.org/img/w/" + currentIconCode + ".png";
       $("#currentIcon").attr("src", currentIconURL);
 
       // Gets and displays current date
@@ -70,7 +70,7 @@ $(document).ready(function(){
       console.log(lon);
 
       // UV Index API call (using latitude and longitude from Current Weather API)
-      let queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
+      let queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
 
       $.ajax({
         url: queryURL2,
