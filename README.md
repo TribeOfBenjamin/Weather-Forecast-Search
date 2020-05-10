@@ -8,8 +8,8 @@ It displays other weather information besides the temperature, including: humidi
 
 ## Images
 #1:
-![#1](assets/images/weather_1)
+![#1](assets/images/weather_1.png)
 #2:
-![#2](assets/images/weather_2)
+![#2](assets/images/weather_2.png)
 #3:
-![#3](assets/images/weather_3)
+![#3](assets/images/weather_3.png)
