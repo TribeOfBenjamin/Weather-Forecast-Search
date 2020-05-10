@@ -17,15 +17,24 @@ $(document).ready(function(){
           console.log(cityWeatherInfo);
 
           displayCurrentWeather(cityWeatherInfo);
+          fiveDayForecast(cityNameInput);
+
       });
   };
 
   function saveCityToLocal(cityNameInput) {
 
       localStorage.setItem("City Name", cityNameInput);
-      //Gotta find a way to make it save multiple entries with "i"
 
   };
+
+  function getCityFromLocal() {
+
+      let cityName = localStorage.getItem("City Name");
+
+      citySearch(cityName);
+
+  }
 
   function displayCurrentWeather(response) {
 
@@ -184,6 +193,24 @@ $(document).ready(function(){
       });
   
     };
+    
+    function addCityToHistory(cityName) {
+
+      let cityHistory = $("<li>").text(cityName);
+      cityHistory.addClass("list-group-item");
+      $("ul").append(cityHistory);
+
+    }
+    // I think this should work but it doesn't
+    $("li").on ( "click", function(event) {
+      event.preventDefault();
+
+      let cityName = $(this).val();
+
+      citySearch(cityName);
+      fiveDayForecast(cityName);
+
+    })
   
     $("#searchButton").on( "click", function(event) {
       event.preventDefault();
@@ -194,8 +221,10 @@ $(document).ready(function(){
 
       citySearch(cityNameInput);
       saveCityToLocal(cityNameInput);
-      fiveDayForecast(cityNameInput);
+      addCityToHistory(cityNameInput);
   
   });
+
+  getCityFromLocal();
   
   });

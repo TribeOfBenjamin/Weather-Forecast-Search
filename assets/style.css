@@ -1,3 +1,13 @@
 #currentUV {
     border-radius: 25px;
 }
+
+.card-title {
+
+    font-size: 15px;
+}
+
+li {
+
+    width: 15rem;
+}
