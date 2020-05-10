@@ -43,15 +43,15 @@ $(document).ready(function(){
       // Gets and displays current temperature
       let temperature = response.main.temp;
       let temperatureInteger = Math.floor(temperature);
-      $("#currentTemp").append(" " + temperatureInteger + String.fromCharCode(176) + "F");
+      $("#currentTemp").text("Temperature: " + temperatureInteger + String.fromCharCode(176) + "F");
 
       // Gets and displays current humidity
       let humidity = response.main.humidity;
-      $("#currentHumid").append(" " + humidity + String.fromCharCode(37));
+      $("#currentHumid").text("Humidity: " + humidity + String.fromCharCode(37));
 
       // Gets and displays current wind speed
       let wind = response.wind.speed;
-      $("#currentWind").append(" " + wind + " MPH");
+      $("#currentWind").text("Wind Speed: " + wind + " MPH");
 
       // Gets latitude and longitude
       let lat = response.coord.lat;
@@ -73,23 +73,23 @@ $(document).ready(function(){
 
         if ( UV < 3 ) {
 
-          $("#currentUV").append(" " + UV);
+          $("#currentUV").text(" " + UV);
           $("#currentUV").css("background-color", "green");
         } else if ( UV >= 3 && UV < 6 ) {
 
-          $("#currentUV").append(" " + UV);
+          $("#currentUV").text(" " + UV);
           $("#currentUV").css("background-color", "yellow");
         } else if ( UV >= 6 && UV < 8 ) {
 
-          $("#currentUV").append(" " + UV);
+          $("#currentUV").text(" " + UV);
           $("#currentUV").css("background-color", "orange");
         } else if ( UV >= 8 && UV < 11 ) {
 
-          $("#currentUV").append(" " + UV);
+          $("#currentUV").text(" " + UV);
           $("#currentUV").css("background-color", "orangered");
         } else if ( UV >= 11 ) {
 
-          $("#currentUV").append(" " + UV);
+          $("#currentUV").text(" " + UV);
           $("#currentUV").css("background-color", "red");
         }
 
@@ -117,10 +117,10 @@ $(document).ready(function(){
     
         let oneDayTemp = fiveResponse.list[7].main.temp;
         let oneDayTempInteger = Math.floor(oneDayTemp);
-        $("#oneDayTemp").append(" " + oneDayTempInteger + String.fromCharCode(176) + "F");
+        $("#oneDayTemp").text("Temp: " + oneDayTempInteger + String.fromCharCode(176) + "F");
     
         let oneDayHumid = fiveResponse.list[7].main.humidity;
-        $("#oneDayHumid").append(" " + oneDayHumid + String.fromCharCode(37));
+        $("#oneDayHumid").text("Humidity: " + oneDayHumid + String.fromCharCode(37));
     
         //Day Two Forecast
         $("#twoDayDate").text(moment().add(2, "days").format("L"));
@@ -131,10 +131,10 @@ $(document).ready(function(){
     
         let twoDayTemp = fiveResponse.list[15].main.temp;
         let twoDayTempInteger = Math.floor(twoDayTemp);
-        $("#twoDayTemp").append(" " + twoDayTempInteger + String.fromCharCode(176) + "F");
+        $("#twoDayTemp").text("Temp: " + twoDayTempInteger + String.fromCharCode(176) + "F");
     
         let twoDayHumid = fiveResponse.list[15].main.humidity;
-        $("#twoDayHumid").append(" " + twoDayHumid + String.fromCharCode(37));
+        $("#twoDayHumid").text("Humidity: " + twoDayHumid + String.fromCharCode(37));
     
         //Day Three Forecast
         $("#threeDayDate").text(moment().add(3, "days").format("L"));
@@ -145,10 +145,10 @@ $(document).ready(function(){
     
         let threeDayTemp = fiveResponse.list[23].main.temp;
         let threeDayTempInteger = Math.floor(threeDayTemp);
-        $("#threeDayTemp").append(" " + threeDayTempInteger + String.fromCharCode(176) + "F");
+        $("#threeDayTemp").text("Temp: " + threeDayTempInteger + String.fromCharCode(176) + "F");
     
         let threeDayHumid = fiveResponse.list[23].main.humidity;
-        $("#threeDayHumid").append(" " + threeDayHumid + String.fromCharCode(37));
+        $("#threeDayHumid").text("Humidity: " + threeDayHumid + String.fromCharCode(37));
     
         //Day Four Forecast
         $("#fourDayDate").text(moment().add(4, "days").format("L"));
@@ -159,10 +159,10 @@ $(document).ready(function(){
     
         let fourDayTemp = fiveResponse.list[31].main.temp;
         let fourDayTempInteger = Math.floor(fourDayTemp);
-        $("#fourDayTemp").append(" " + fourDayTempInteger + String.fromCharCode(176) + "F");
+        $("#fourDayTemp").text("Temp: " + fourDayTempInteger + String.fromCharCode(176) + "F");
     
         let fourDayHumid = fiveResponse.list[31].main.humidity;
-        $("#fourDayHumid").append(" " + fourDayHumid + String.fromCharCode(37));
+        $("#fourDayHumid").text("Humidity: " + fourDayHumid + String.fromCharCode(37));
     
         //Day Five Forecast
         $("#fiveDayDate").text(moment().add(5, "days").format("L"));
@@ -173,10 +173,10 @@ $(document).ready(function(){
     
         let fiveDayTemp = fiveResponse.list[31].main.temp;
         let fiveDayTempInteger = Math.floor(fiveDayTemp);
-        $("#fiveDayTemp").append(" " + fiveDayTempInteger + String.fromCharCode(176) + "F");
+        $("#fiveDayTemp").text("Temp: " + fiveDayTempInteger + String.fromCharCode(176) + "F");
     
         let fiveDayHumid = fiveResponse.list[31].main.humidity;
-        $("#fiveDayHumid").append(" " + fiveDayHumid + String.fromCharCode(37));
+        $("#fiveDayHumid").text("Humidity: " + fiveDayHumid + String.fromCharCode(37));
     
         console.log(fiveResponse);
     
